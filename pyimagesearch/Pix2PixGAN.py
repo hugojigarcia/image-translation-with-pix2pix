@@ -18,7 +18,7 @@ class Pix2Pix(object):
 	def generator(self):
 		# initialize the input layer
 		inputs = Input([self.imageHeight, self.imageWidth, 3])
-  
+
 		# down Layer 1 (d1) => final layer 1 (f1)
 		d1 = Conv2D(32, (3, 3), activation="relu", padding="same")(
 			inputs)
@@ -71,14 +71,14 @@ class Pix2Pix(object):
 
 		# final conv2D layer
 		outputLayer = Conv2D(3, (1, 1), activation="tanh")(u9)
-	
+
 		# create the generator model
 		generator = Model(inputs, outputLayer)
 
 		# return the generator
 		return generator
-    
-    def discriminator(self):
+		
+	def discriminator(self):
 		# initialize input layer according to PatchGAN
 		inputMask = Input(shape=[self.imageHeight, self.imageWidth, 3], 
 			name="input_image"
