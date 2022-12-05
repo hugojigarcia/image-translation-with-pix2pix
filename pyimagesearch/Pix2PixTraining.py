@@ -19,8 +19,8 @@ class Pix2PixTraining(Model):
 		# initialize the loss functions
 		self.bceLoss = bceLoss
 		self.maeLoss = maeLoss
-    
-    def train_step(self, inputs):
+	
+	def train_step(self, inputs):
 		# grab the input mask and corresponding real images
 		(inputMask, realImages) = inputs
 
@@ -54,22 +54,22 @@ class Pix2PixTraining(Model):
 
 			# compute the total discriminator loss
 			totalDiscLoss = realDiscLoss + generatedLoss
-
-        # calculate the generator and discriminator gradients
-        generatorGradients = genTape.gradient(totalGenLoss, 
+		
+		# calculate the generator and discriminator gradients
+		generatorGradients = genTape.gradient(totalGenLoss, 
             self.generator.trainable_variables
         )
-        discriminatorGradients = discTape.gradient(totalDiscLoss, 
+		discriminatorGradients = discTape.gradient(totalDiscLoss, 
             self.discriminator.trainable_variables
         )
-
-        # apply the gradients to optimize the generator and discriminator
-        self.gOptimizer.apply_gradients(zip(generatorGradients,
+		
+		# apply the gradients to optimize the generator and discriminator
+		self.gOptimizer.apply_gradients(zip(generatorGradients,
             self.generator.trainable_variables)
         )
-        self.dOptimizer.apply_gradients(zip(discriminatorGradients,
+		self.dOptimizer.apply_gradients(zip(discriminatorGradients,
             self.discriminator.trainable_variables)
         )
-        
-        # return the generator and discriminator losses
-        return {"dLoss": totalDiscLoss, "gLoss": totalGenLoss}
+		
+		# return the generator and discriminator losses
+		return {"dLoss": totalDiscLoss, "gLoss": totalGenLoss}
