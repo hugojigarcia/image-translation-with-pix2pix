@@ -22,7 +22,7 @@ EPOCHS = 150
 STEPS_PER_EPOCH = 100
 
 # path to our base output directory
-BASE_OUTPUT_PATH = "outputs"
+BASE_OUTPUT_PATH = "/content/image-translation-with-pix2pix/outputs"
 # GPU training pix2pix model paths
 GENERATOR_MODEL = os.path.join(BASE_OUTPUT_PATH, "models",
   "generator")
