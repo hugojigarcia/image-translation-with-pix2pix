@@ -29,4 +29,4 @@ GENERATOR_MODEL = os.path.join(BASE_OUTPUT_PATH, "models",
 
 # define the path to the inferred images and to the grid image
 BASE_IMAGES_PATH = os.path.join(BASE_OUTPUT_PATH, "images")
-GRID_IMAGE_PATH = os.path.join(BASE_IMAGE_PATH, "grid.png")
+GRID_IMAGE_PATH = os.path.join(BASE_IMAGES_PATH, "grid.png")
